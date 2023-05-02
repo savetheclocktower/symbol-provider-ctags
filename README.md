@@ -4,6 +4,8 @@ Provides symbols to symbols-view via `ctags`.
 
 This is the approach historically used by `symbols-view` — now spun out into its own “provider” package among several.
 
+Used with the [symbols-view-plus package](https://github.com/savetheclocktower/symbols-view-plus), which will eventually be folded into [Pulsar’s existing symbols-view package](https://github.com/pulsar-edit/symbols-view).
+
 This symbol provider will typically be used on non-Tree-sitter grammars, and possibly when performing a project-wide search. Symbol-based navigation on files with Tree-sitter grammars will typically be provided by [symbol-provider-tree-sitter](https://github.com/savetheclocktower/symbol-provider-tree-sitter).
 
 ## Language support
