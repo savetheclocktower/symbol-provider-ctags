@@ -53,7 +53,6 @@ describe('CTagsProvider', () => {
   });
 
   describe('when tags can be generated for a file', () => {
-
     beforeEach(async () => {
       await atom.workspace.open(directory.resolve('sample.js'));
       editor = getEditor();
@@ -71,11 +70,34 @@ describe('CTagsProvider', () => {
       expect(symbols[1].name).toBe('quicksort.sort');
       expect(symbols[1].position.row).toEqual(1);
     });
+  });
 
+  describe('when the buffer is new and unsaved', () => {
+    beforeEach(async () => {
+      await atom.workspace.open();
+      editor = getEditor();
+    });
+
+    it('does not try to provide symbols', () => {
+      let meta = { type: 'file', editor };
+      expect(provider.canProvideSymbols(meta)).toBe(0);
+    });
+  });
+
+  describe('when the buffer is modified', () => {
+    beforeEach(async () => {
+      await atom.workspace.open(directory.resolve('sample.js'));
+      editor = getEditor();
+    });
+
+    it('returns a lower match score', () => {
+      editor.insertText("\n");
+      let meta = { type: 'file', editor };
+      expect(provider.canProvideSymbols(meta)).toBe(0.9);
+    });
   });
 
   describe('when no tags can be generated for a file', () => {
-
     beforeEach(async () => {
       await atom.workspace.open(directory.resolve('no-symbols.js'));
       editor = getEditor();
