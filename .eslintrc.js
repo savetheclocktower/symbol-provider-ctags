@@ -13,7 +13,11 @@ module.exports = {
     atom: true
   },
   rules: {
-    "space-before-function-paren": ["error", "never"],
+    "space-before-function-paren": ["error", {
+      "named": "never",
+      "anonymous": "never",
+      "asyncArrow": "always"
+    }],
     "no-cond-assign": "off"
   }
 };
