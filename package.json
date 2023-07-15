@@ -1,7 +1,7 @@
 {
   "name": "symbol-provider-ctags",
   "main": "./lib/main",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Provides symbols to symbols-view via ctags",
   "repository": "https://github.com/savetheclocktower/symbol-provider-ctags",
   "license": "MIT",
