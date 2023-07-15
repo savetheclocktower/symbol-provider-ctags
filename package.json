@@ -3,7 +3,7 @@
   "main": "./lib/main",
   "version": "0.0.1",
   "description": "Provides symbols to symbols-view via ctags",
-  "repository": "https://github.com/atom/symbol-provider-ctags",
+  "repository": "https://github.com/savetheclocktower/symbol-provider-ctags",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0",
