@@ -1,12 +1,10 @@
 # symbol-provider-ctags package
 
-Provides symbols to symbols-view via `ctags`.
+Provides symbols to `symbols-view` via `ctags`.
 
 This is the approach historically used by `symbols-view` — now spun out into its own “provider” package among several.
 
-Used with the [symbols-view-redux package](https://web.pulsar-edit.dev/packages/symbols-view-redux), which will eventually be folded into [Pulsar’s existing symbols-view package](https://github.com/pulsar-edit/symbols-view).
-
-This symbol provider will typically be used on non-Tree-sitter grammars, and possibly when performing a project-wide search. Symbol-based navigation on files with Tree-sitter grammars will typically be provided by [symbol-provider-tree-sitter](https://web.pulsar-edit.dev/packages/symbol-provider-tree-sitter).
+This symbol provider will typically be used on non-Tree-sitter grammars, and possibly when performing a project-wide search. Symbol-based navigation on files with Tree-sitter grammars will typically be provided by `symbol-provider-tree-sitter`.
 
 ## Language support
 
@@ -18,9 +16,9 @@ For the **Symbols View: Toggle File Symbols** command, `ctags` will scan the fil
 
 ## Toggle Project Symbols, Go To Declaration
 
-These commands require a tags file, typically defined at `.tags`/`tags`/`.TAGS`/`TAGS` in the root of your project. This package cannot generate (or regenerate) your tags file, since it doesn’t know which files to include. You can run `ctags` regularly on your own to generate this file.
+These commands require a tags file, typically defined at `.tags`/`tags`/`.TAGS`/`TAGS` in the root of your project. This package cannot generate (or regenerate) your tags file, since it doesn’t know which files to include. You can run `ctags` regularly on your own to generate this file. Consult [the documentation for Exuberant Ctags](https://ctags.sourceforge.net/ctags.html) for more information.
 
 Once your tags file is present, these commands can be fulfilled by `symbol-provider-ctags`…
 
 * The **Symbols View: Toggle Project Symbols** command works like **Symbols View: Toggle File Symbols** described above, except it’ll show you symbols from the entire project.
-* The **Symbols View: Go To Declaration** command works like **Symbols View: Toggle Project Symbols**, except the word under the cursor will be pre-filled in the search box.
+* The **Symbols View: Go To Declaration** command works like **Symbols View: Toggle Project Symbols**, except the word under the cursor will be pre-filled in the search box, and a result will automatically be opened if it is the only result.
